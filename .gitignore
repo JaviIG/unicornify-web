@@ -1,0 +1,40 @@
+# crawler
+raw-data
+crawler-errors
+crawler/data/links.json
+*.private.env.json
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nuxt-storybook
+.nitro
+.cache
+dist
+storybook-static
+.wrangler
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+.eslintcache
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# Local Netlify folder
+.netlify
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

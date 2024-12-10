@@ -1,0 +1,31 @@
+{
+  "email": "Email",
+  "password": "Password",
+  "app": {
+    "terms-and-conditions": "Terms & Conditions",
+    "privacy-policy": "Privacy Policy",
+    "cookie-settings": "Cookie Settings"
+  },
+  "faq": {
+    "jobs": {
+      "question": "How many active job listings are available?",
+      "answer": "You’ll find over {jobsCount} active software job listings from top companies, updated daily to make sure you’re seeing the latest opportunities."
+    },
+    "help": {
+      "question": "How does the application tracking system help me?",
+      "answer": "We help you discover the right jobs based on your preferences and keep all your applications organized in one place, so you can track each step without the hassle."
+    },
+    "application": {
+      "question": "Can I apply to jobs directly through this site?",
+      "answer": "You’ll always apply directly through the company’s official website, ensuring your application goes where it needs to. Our tools help you manage each step along the way, keeping everything organized and stress-free."
+    },
+    "remote": {
+      "question": "Are these jobs specific to certain regions or remote-friendly?",
+      "answer": "We have a variety of remote, hybrid, and on-site positions from companies worldwide. You can find options that suit your location and preferred work style, wherever you are."
+    },
+    "cost": {
+      "question": "Is there a cost to use this platform?",
+      "answer": "Yes, it’s just {monthlyPricing}/month to access all our tools and job listings. We’re here to help make your job search easier and more effective."
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "cookies": {
+    "kind": {
+      "essential": {
+        "title": "Essential",
+        "description": "Essential cookies are required for basic site functionality. Some examples include: preference cookies, session cookies, authentication cookies, and security cookies."
+      },
+      "tracking": {
+        "title": "Tracking",
+        "description": "Tracking cookies are used to understand user behavior and improve the website. We use PostHog to track page views"
+      }
+    },
+    "text": "We use cookies to improve your experience on our website. By clicking accept, you agree to our use of cookies. You can read more in our {privacy-policy-link}.",
+    "accept-all": "Accept all",
+    "reject": "Reject",
+    "settings": "Cookie settings"
+  }
+}

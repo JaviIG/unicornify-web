@@ -1,0 +1,40 @@
+{
+  "payments": {
+    "pricing-table": {
+      "monthly": {
+        "title": "1 Month Subscription",
+        "subtitle": "Try our job tracker for a month. Ideal for short-term use.",
+        "buy": "Buy 1 Month Access"
+      },
+      "quarter": {
+        "title": "3 Months Subscription",
+        "subtitle": "Three months of job tracking. Great for ongoing projects.",
+        "buy": "Buy 3 Months Access"
+      },
+      "half-year": {
+        "title": "6 Months Subscription",
+        "subtitle": "Six months of job tracking. Best for long-term use.",
+        "buy": "Buy 6 Months Access"
+      }
+    },
+    "success": {
+      "message": "Thank you for subscribing to UnicornifyWeb! We're excited to help you land your dream job. Let’s get started!",
+      "cta": "Discover Jobs Waiting for You"
+    }
+  },
+  "subscriptions": {
+    "cancel": "Cancel Subscription",
+    "reactivate": "Subscribe again",
+    "expires-at": "Active until {date}",
+    "next-payment": "Next payment on {date}",
+    "expired-at": "Subscription expired",
+    "no-subscription": "You don't have an active subscription"
+  },
+  "invoices-table": {
+    "title": "Payments history",
+    "header": {
+      "date": "Date",
+      "amount": "Amount"
+    }
+  }
+}

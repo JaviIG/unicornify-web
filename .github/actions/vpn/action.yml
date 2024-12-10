@@ -1,0 +1,24 @@
+name: Setup
+description: Setups tailscale
+
+runs:
+  using: composite
+  steps:
+    - name: Install Tailscale
+      shell: bash
+      run: |
+        curl -fsSL https://tailscale.com/install.sh | sh
+
+    - name: Authenticate and Connect to Tailscale with Exit Node
+      shell: bash
+      env:
+        TS_AUTH_KEY: ${{ secrets.TS_AUTH_KEY }}
+        EXIT_NODE: ${{ secrets.TS_EXIT_NODE }}
+      run: |
+        sudo tailscale up --authkey=${TS_AUTH_KEY} --exit-node=${EXIT_NODE} --accept-routes --exit-node-allow-lan-access
+        tailscale status
+    - name: Disconnect from Tailscale
+      if: ${{ always() }}
+      shell: bash
+      run: |
+        sudo tailscale down

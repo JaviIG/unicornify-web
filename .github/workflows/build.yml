@@ -1,0 +1,115 @@
+name: Build, Test & Deploy
+on:
+  push:
+    branches: [master, next]
+    tags: [release-*]
+    paths:
+      - 'app/**/*'
+      - 'layers/**/*'
+      - 'public/**/*'
+      - 'server/**/*'
+      - '.github/workflows/build.yml'
+      - '**.md'
+      - 'nuxt.config.ts'
+      - 'eslint.config.js'
+      - '.prettierrc.js'
+      - 'vitest.config.ts'
+      - 'vitest.setup.ts'
+      - 'wrangler.toml'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig.json'
+      - 'yarn.lock'
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install
+        uses: ./.github/actions/setup
+      - name: Create .env file
+        env:
+          ENV_FILE: ${{ inputs.environment == 'pro' && secrets.ACTIONS_ENV_PRO  || secrets.ACTIONS_ENV_PRE }}
+        run: echo "${{ Env.ENV_FILE }}" > .env
+      - name: Build project
+        run: pnpm build
+      - name: Upload dist files
+        uses: actions/upload-artifact@v4
+        with:
+          name: unicornify-web
+          path: |
+            dist
+            .nuxt
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install
+        uses: ./.github/actions/setup
+      - name: Lint
+        run: pnpm lint
+      - name: Type Check
+        run: pnpm type:check
+
+  tests-unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install
+        uses: ./.github/actions/setup
+      - name: Unit tests
+        run: pnpm test:unit
+
+  test-e2e:
+    if: ${{ false }}
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install
+        uses: ./.github/actions/setup
+      - uses: actions/download-artifact@v4
+        with:
+          name: unicornify-web
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+      - name: Run Playwright tests
+        run: pnpm exec playwright test
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' || contains(github.ref, 'refs/tags/release') }}
+    needs: [build, tests-unit, lint]
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install
+        uses: ./.github/actions/setup
+      - uses: actions/download-artifact@v4
+        with:
+          name: unicornify-web
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        env:
+          PROJECT_NAME: ${{ contains(github.ref, 'refs/tags/release') && 'unicornify-web' || 'unicornify-web-pre' }}
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/ --project-name ${{ env.PROJECT_NAME }} --branch main
