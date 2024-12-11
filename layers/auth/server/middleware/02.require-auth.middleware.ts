@@ -1,4 +1,3 @@
-import { requireUserSession } from '#imports';
 import { defineEventHandler } from 'h3';
 import { type User } from '../../models/user.model';
 import type { Subscription } from '~~/layers/payments/models/product.model';

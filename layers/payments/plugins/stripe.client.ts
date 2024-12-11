@@ -1,5 +1,4 @@
 import type { NuxtApp } from '#app';
-import { defineNuxtPlugin } from '#imports';
 import type { CheckoutRequest } from '~~/layers/payments/server/api/private/payments/checkout.post';
 
 declare module '#app' {

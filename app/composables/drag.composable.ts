@@ -1,4 +1,3 @@
-import { useState } from '#imports';
 import { useEventListener } from '@vueuse/core';
 import { type Ref, unref, ref, type MaybeRef } from 'vue';
 

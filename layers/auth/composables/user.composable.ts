@@ -1,5 +1,3 @@
-import { useRouter, useUserSession } from '#imports';
-
 export function useUser() {
   const { clear, user, loggedIn: isSignedIn, session } = useUserSession();
 

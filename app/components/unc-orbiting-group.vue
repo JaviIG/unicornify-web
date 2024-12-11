@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useState } from '#imports';
 import GijRhombusItem from '~/components/unc-rhombus-item.vue';
 
 const animationDurationSeconds = 12;

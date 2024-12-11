@@ -1,4 +1,3 @@
-import { useRuntimeConfig } from '#imports';
 import {
   type CfProperties,
   D1Database,

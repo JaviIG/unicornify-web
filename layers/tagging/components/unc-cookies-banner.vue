@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { useTaggingCookies } from '#imports';
 import { GlmButton } from '@unicornify/gleam-ui';
+import { useTaggingCookies } from '~~/layers/tagging/composables/tagging-cookies.composable';
 
 const { hasInteractedWithCookies, cookieSettings } = useTaggingCookies();
 const emit = defineEmits<{

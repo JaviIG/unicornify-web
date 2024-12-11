@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { definePageMeta, useAsyncData, useI18n, useNuxtApp } from '#imports';
 import { GlmButton } from '@unicornify/gleam-ui';
 import { computed } from 'vue';
 import JlcGleamBar from '~/components/layout/unc-gleam-bar.vue';

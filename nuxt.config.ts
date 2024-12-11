@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     dirs: [],
   },
   imports: {
-    autoImport: false,
+    scan: false,
   },
   i18n: {
     baseUrl: '/',

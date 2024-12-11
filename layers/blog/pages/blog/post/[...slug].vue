@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { definePageMeta } from '#imports';
 import { GlmImg } from '@unicornify/gleam-ui';
 import UncDocument from '~/components/unc-document.vue';
 

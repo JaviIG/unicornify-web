@@ -1,4 +1,3 @@
-import { useAsyncData, useNuxtApp } from '#imports';
 import type { MaybeRef } from 'vue';
 import { unref } from 'vue';
 

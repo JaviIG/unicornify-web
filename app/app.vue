@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { useHead, useLocaleHead } from '#imports';
-
 const i18nHead = useLocaleHead({
   seo: true,
 });

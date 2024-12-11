@@ -1,4 +1,3 @@
-import { useCookie } from '#imports';
 import type { CookieSettings } from '~~/layers/tagging/models/cookie-settings.model';
 
 export function useTaggingCookies() {

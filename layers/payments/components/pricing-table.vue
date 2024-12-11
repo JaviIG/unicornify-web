@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useNuxtApp } from '#imports';
 import PricingCard from './pricing-card.vue';
 import { subscriptions } from '~~/layers/payments/db/products';
 import { useUser } from '~~/layers/auth/composables/user.composable';

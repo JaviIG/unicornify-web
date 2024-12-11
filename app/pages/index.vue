@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { definePageMeta, useNuxtApp, useRouter, useUser } from '#imports';
 import { GlmButton, GlmSvgIcon, CaretRightIcon } from '@unicornify/gleam-ui';
 import { computed } from 'vue';
 import type { AccordionItem } from '~/components/faq/faq.types';
 import JlcFaq from '~/components/faq/unc-faq.vue';
 import UncOrbitingGroup from '~/components/unc-orbiting-group.vue';
+import { useUser } from '~~/layers/auth/composables/user.composable';
 import { subscriptions } from '~~/layers/payments/db/products';
 
 definePageMeta({

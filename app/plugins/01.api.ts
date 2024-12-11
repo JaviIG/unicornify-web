@@ -1,4 +1,3 @@
-import { defineNuxtPlugin, useRequestHeaders } from '#imports';
 import { createHttpClient, type HttpClient } from '~/services/http-client.factory';
 import { type LocalApi } from '~/services/local-api.types';
 

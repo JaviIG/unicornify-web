@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { definePageMeta, useRoute } from '#imports';
 import UncBlogPostsList from '../../../../components/unc-blog-posts-list.vue';
 import { computed } from 'vue';
 

@@ -1,4 +1,3 @@
-import { defineOAuthGitHubEventHandler, setUserSession } from '#imports';
 import { sendRedirect } from 'h3';
 
 export default defineOAuthGitHubEventHandler({

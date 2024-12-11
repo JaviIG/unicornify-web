@@ -1,5 +1,4 @@
 import { serverQueryContent } from '#content/server';
-import { useRuntimeConfig } from '#imports';
 import { defineEventHandler } from 'h3';
 import { SitemapStream, streamToPromise } from 'sitemap';
 

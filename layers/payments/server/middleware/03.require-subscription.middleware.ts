@@ -1,4 +1,3 @@
-import { requireUserSession } from '#imports';
 import { createError, defineEventHandler } from 'h3';
 
 export default defineEventHandler(async (event) => {

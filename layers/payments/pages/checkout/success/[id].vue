@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { definePageMeta, useAsyncData, useNuxtApp, useRoute } from '#imports';
 import { GlmButton } from '@unicornify/gleam-ui';
 
 definePageMeta({

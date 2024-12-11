@@ -1,4 +1,3 @@
-import { useRuntimeConfig } from '#imports';
 import type { PaymentsService } from '../../../services/payments.service';
 import { createError, defineEventHandler, getHeader, H3Event, readRawBody } from 'h3';
 import { Stripe } from 'stripe';
