@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import {
-  CopySimpleIcon,
-  GlmButton,
-  GlmSvgIcon,
-  CheckIcon,
-  type ButtonVariant,
-  XIcon,
-} from '@unicornify/gleam-ui';
+import { GlmButton, GlmSvgIcon, type ButtonVariant } from '@unicornify/gleam-ui';
 import { ref } from 'vue';
+import { CheckIcon } from '@unicornify/gleam-ui-icons/check';
+import { XIcon } from '@unicornify/gleam-ui-icons/x';
+import { CopySimpleIcon } from '@unicornify/gleam-ui-icons/copy-simple';
 
 const props = defineProps<{
   content: string;

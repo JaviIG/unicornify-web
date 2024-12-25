@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const UserSchema = z.object({
   id: z.number().int(),
-  provider: z.enum(['github']),
+  provider: z.enum(['github', 'google']),
   providerId: z.string(),
   createdAt: z.date(),
 });

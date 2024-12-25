@@ -2,7 +2,8 @@ export function useUser() {
   const { clear, user, loggedIn: isSignedIn, session } = useUserSession();
 
   const authProviderUrls = {
-    github: '/api/public/auth/github',
+    github: '/auth/github',
+    google: '/auth/google',
   };
 
   const router = useRouter();

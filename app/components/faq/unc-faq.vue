@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { AccordionItem } from './faq.types';
-import { CaretRightIcon, GlmExpandTransition, GlmSvgIcon } from '@unicornify/gleam-ui';
+import { GlmExpandTransition, GlmSvgIcon } from '@unicornify/gleam-ui';
 import { ref } from 'vue';
+import { CaretRightIcon } from '@unicornify/gleam-ui-icons/caret-right';
 
 defineProps<{
   items: AccordionItem[];

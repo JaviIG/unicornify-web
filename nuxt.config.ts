@@ -55,7 +55,7 @@ export default defineNuxtConfig({
   },
   vite: {
     ssr: {
-      noExternal: ['@unicornify/gleam-ui'],
+      noExternal: ['@unicornify/gleam-ui-icons', '@unicornify/gleam-ui'],
     },
     build: {
       assetsInlineLimit: 0,

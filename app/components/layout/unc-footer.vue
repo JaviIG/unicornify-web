@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { GlmSvgIcon, XLogoIcon } from '@unicornify/gleam-ui';
+import { GlmSvgIcon } from '@unicornify/gleam-ui';
+import { XLogoIcon } from '@unicornify/gleam-ui-icons/x-logo';
 
 const emit = defineEmits<{
   'click:settings': [MouseEvent];

@@ -53,7 +53,7 @@ export type CreateUserServiceOptions = {
 };
 
 export type CreateUserOptions = {
-  provider: 'github';
+  provider: 'github' | 'google';
   providerId: string;
   avatarUrl: string;
 };

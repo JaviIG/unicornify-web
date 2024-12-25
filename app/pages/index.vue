@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { GlmButton, GlmSvgIcon, CaretRightIcon } from '@unicornify/gleam-ui';
+import { GlmButton, GlmSvgIcon } from '@unicornify/gleam-ui';
+import { CaretRightIcon } from '@unicornify/gleam-ui-icons/caret-right';
 import { computed } from 'vue';
 import type { AccordionItem } from '~/components/faq/faq.types';
 import JlcFaq from '~/components/faq/unc-faq.vue';

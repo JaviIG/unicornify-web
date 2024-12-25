@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ExclamationMarkIcon, GlmExpandTransition, GlmSvgIcon } from '@unicornify/gleam-ui';
+import { GlmExpandTransition, GlmSvgIcon } from '@unicornify/gleam-ui';
 import type { MaybeArray } from '@unicornify/utils';
 import { cloneVNode, type VNode } from 'vue';
-import { useFormField } from '~//composables/form.composable';
+import { useFormField } from '~/composables/form.composable';
+import { ExclamationMarkIcon } from '@unicornify/gleam-ui-icons/exclamation-mark';
 
 const props = defineProps<{
   uncontrolled?: boolean;

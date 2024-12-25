@@ -1,37 +1,48 @@
 <script lang="ts" setup>
-import {
-  GlmButton,
-  GlmDropdownMenu,
-  GlmDropdownMenuItem,
-  GlmSvgIcon,
-  GithubLogoIcon,
-  UserCircleIcon,
-} from '@unicornify/gleam-ui';
+import { GlmDropdownMenu, GlmDropdownMenuItem, GlmSvgIcon } from '@unicornify/gleam-ui';
+import { GithubLogoIcon } from '@unicornify/gleam-ui-icons/github-logo';
+import { GoogleLogoIcon } from '@unicornify/gleam-ui-icons/google-logo';
+import { UserCircleIcon } from '@unicornify/gleam-ui-icons/user-circle';
 import { useUser } from '~~/layers/auth/composables/user.composable';
 
 const { isSignedIn, signOut, authProviderUrls, user } = useUser();
 </script>
 <template>
-  <GlmDropdownMenu v-if="isSignedIn" class="unc-user-button" variant="transparent" icon-only>
+  <GlmDropdownMenu :icon-only="isSignedIn" class="unc-user-button" v variant="transparent">
     <template #trigger>
-      <img v-if="user?.avatarUrl" :src="user.avatarUrl" class="unc-user-button__avatar" />
-      <GlmSvgIcon v-else :name="UserCircleIcon" />
+      <template v-if="isSignedIn">
+        <img v-if="user?.avatarUrl" :src="user.avatarUrl" class="unc-user-button__avatar" />
+        <GlmSvgIcon v-else :name="UserCircleIcon" />
+      </template>
+      <template v-else>
+        <GlmSvgIcon :name="UserCircleIcon" />
+        Sign In
+      </template>
     </template>
     <template #items>
-      <GlmDropdownMenuItem to="/user/subscription">Subscription</GlmDropdownMenuItem>
-      <GlmDropdownMenuItem @click="signOut">Sign Out</GlmDropdownMenuItem>
+      <template v-if="isSignedIn">
+        <GlmDropdownMenuItem to="/user/subscription">Subscription</GlmDropdownMenuItem>
+        <GlmDropdownMenuItem @click="signOut">Sign Out</GlmDropdownMenuItem>
+      </template>
+      <template v-else>
+        <GlmDropdownMenuItem
+          :to="authProviderUrls.github + '?redirect=' + encodeURIComponent($route.fullPath)"
+          kind="external-link"
+        >
+          <GlmSvgIcon :name="GithubLogoIcon" />
+          Sign In with GitHub
+        </GlmDropdownMenuItem>
+        <GlmDropdownMenuItem
+          :to="authProviderUrls.google + '?redirect=' + encodeURIComponent($route.fullPath)"
+          kind="external-link"
+        >
+          <GlmSvgIcon :name="GoogleLogoIcon" />
+
+          Sign In with Google
+        </GlmDropdownMenuItem>
+      </template>
     </template>
   </GlmDropdownMenu>
-  <GlmButton
-    v-else
-    class="unc-user-button"
-    kind="external-link"
-    :to="authProviderUrls.github + '?redirect=' + encodeURIComponent($route.fullPath)"
-    variant="default"
-  >
-    <GlmSvgIcon :name="GithubLogoIcon" />
-    Sign In with GitHub
-  </GlmButton>
 </template>
 
 <style lang="scss" scoped>
