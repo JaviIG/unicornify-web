@@ -42,7 +42,7 @@ export const createHttpClient =
     sharedOptions: CreateHttpClientOptions = {},
   ): HttpClient<Routes, BaseUrl> => {
     const baseUrl =
-      !base.startsWith('http') && 'location' in globalThis
+      !isExternalUrl(base) && 'location' in globalThis
         ? new URL(base, globalThis.location.origin).href
         : base;
     const baseOptions = typeof sharedOptions === 'function' ? sharedOptions() : sharedOptions;
@@ -52,7 +52,8 @@ export const createHttpClient =
       { query, body, headers, ...requestOptions }: RequestOptions,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ): Promise<any> {
-      return $fetch(path, {
+      const normalizedPath = isExternalUrl(baseUrl) && !path.startsWith('./') ? `./${path}` : path;
+      return $fetch(normalizedPath, {
         baseURL: baseUrl,
         method,
         query: {
@@ -105,3 +106,7 @@ type RequestOptions = {
   body?: Record<string, unknown> | unknown[];
   responseType?: 'blob' | 'text' | 'arrayBuffer' | 'stream' | 'json';
 };
+
+function isExternalUrl(url: string) {
+  return url.startsWith('http');
+}
